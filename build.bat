@@ -1,4 +1,9 @@
+TITLE Bulding Engine Editor
+Echo "Building Engine"
 
-"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat" && scons -j8 platform=windows
-
-"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat" && scons -j8 platform=windows
+Echo "Building Engine 32 bit"
+start /wait "32 Bit Release" cmd /c be32
+#CALL be32
+Echo "Building Engine 64 bit"
+start /wait "64 Bit Release" cmd /c be64
+#CALL be64
