@@ -4,8 +4,8 @@ Echo "Building Templates"
 TITLE Bulding Templates 32
 Echo "Building Templates 32"
 
-start /wait "32 Bit Release" cmd /c bt32r
-start /wait "32 Bit Debug" cmd /c bt32rd
+rem start /wait "32 Bit Release" cmd /c bt32r
+rem start /wait "32 Bit Debug" cmd /c bt32rd
 
 TITLE Bulding Templates 64
 Echo "Building Templates 64"
