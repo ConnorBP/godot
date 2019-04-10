@@ -1,0 +1,4 @@
+[submodule "godotsteam"]
+	path = godotsteam
+	url = C:\\Users\\conno\\Documents\\GodotSteam
+	branch = local
