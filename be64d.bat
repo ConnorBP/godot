@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat" && scons -j8 dev=yes p=windows tools=yes target=debug use_lto=yes
