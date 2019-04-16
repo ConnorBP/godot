@@ -659,7 +659,11 @@ void Viewport::_notification(int p_what) {
 			}
 
 		} break;
+		case SceneTree::NOTIFICATION_WM_MOUSE_EXIT:
 		case SceneTree::NOTIFICATION_WM_FOCUS_OUT: {
+
+			_drop_physics_mouseover();
+
 			if (gui.mouse_focus) {
 				//if mouse is being pressed, send a release event
 				_drop_mouse_focus();
@@ -2561,6 +2565,31 @@ void Viewport::_drop_mouse_focus() {
 	}
 }
 
+void Viewport::_drop_physics_mouseover() {
+
+	physics_has_last_mousepos = false;
+
+	while (physics_2d_mouseover.size()) {
+		Object *o = ObjectDB::get_instance(physics_2d_mouseover.front()->key());
+		if (o) {
+			CollisionObject2D *co = Object::cast_to<CollisionObject2D>(o);
+			co->_mouse_exit();
+		}
+		physics_2d_mouseover.erase(physics_2d_mouseover.front());
+	}
+
+#ifndef _3D_DISABLED
+	if (physics_object_over) {
+		CollisionObject *co = Object::cast_to<CollisionObject>(ObjectDB::get_instance(physics_object_over));
+		if (co) {
+			co->_mouse_exit();
+		}
+	}
+
+	physics_object_over = physics_object_capture = 0;
+#endif
+}
+
 List<Control *>::Element *Viewport::_gui_show_modal(Control *p_control) {
 
 	gui.modal_stack.push_back(p_control);
@@ -3193,7 +3222,7 @@ Viewport::Viewport() {
 	gui.tooltip_timer = -1;
 
 	//gui.tooltip_timer->force_parent_owned();
-	gui.tooltip_delay = GLOBAL_DEF("gui/timers/tooltip_delay_sec", 0.7);
+	gui.tooltip_delay = GLOBAL_DEF("gui/timers/tooltip_delay_sec", 0.5);
 	ProjectSettings::get_singleton()->set_custom_property_info("gui/timers/tooltip_delay_sec", PropertyInfo(Variant::REAL, "gui/timers/tooltip_delay_sec", PROPERTY_HINT_RANGE, "0,5,0.01,or_greater")); // No negative numbers
 
 	gui.tooltip = NULL;

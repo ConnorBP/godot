@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<class name="ProjectSettings" inherits="Object" category="Core" version="3.1.1">
+<class name="ProjectSettings" inherits="Object" category="Core" version="3.2">
 	<brief_description>
 		Contains global variables accessible from everywhere.
 	</brief_description>
@@ -215,6 +215,8 @@
 		<member name="audio/channel_disable_time" type="float" setter="" getter="">
 			Audio buses will disable automatically when sound goes below a given DB threshold for a given time. This saves CPU as effects assigned to that bus will no longer do any processing.
 		</member>
+		<member name="audio/default_bus_layout" type="String" setter="" getter="">
+		</member>
 		<member name="audio/driver" type="String" setter="" getter="">
 		</member>
 		<member name="audio/enable_audio_input" type="bool" setter="" getter="">
@@ -222,6 +224,8 @@
 		</member>
 		<member name="audio/mix_rate" type="int" setter="" getter="">
 			Mix rate used for audio. In general, it's better to not touch this and leave it to the host operating system.
+		</member>
+		<member name="audio/output_latency" type="int" setter="" getter="">
 		</member>
 		<member name="audio/video_delay_compensation_ms" type="int" setter="" getter="">
 			Setting to hardcode audio delay when playing video. Best to leave this untouched unless you know what you are doing.

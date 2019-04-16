@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<class name="AnimationNodeBlendSpace2D" inherits="AnimationRootNode" category="Core" version="3.1.1">
+<class name="AnimationNodeBlendSpace2D" inherits="AnimationRootNode" category="Core" version="3.2">
 	<brief_description>
 	</brief_description>
 	<description>
@@ -136,8 +136,10 @@
 		<constant name="BLEND_MODE_INTERPOLATED" value="0" enum="BlendMode">
 		</constant>
 		<constant name="BLEND_MODE_DISCRETE" value="1" enum="BlendMode">
+			Useful for frame-by-frame 2D animations.
 		</constant>
 		<constant name="BLEND_MODE_DISCRETE_CARRY" value="2" enum="BlendMode">
+			Keep the current play position when switching between discrete animations.
 		</constant>
 	</constants>
 </class>
